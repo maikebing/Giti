@@ -1,0 +1,16 @@
+@using Giti.Code
+@using Giti.Models
+@model BlobModel
+
+@{
+	ViewBag.Title = Model.Name;
+}
+
+@if(Model.IsBinary)
+{
+	<p>This file is binary and cannot be displayed.</p>
+}
+else
+{
+    <p>@Model.Content</p>
+}

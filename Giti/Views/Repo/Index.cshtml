@@ -18,22 +18,20 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
-            <th></th>
+            
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-               
-            </td>
-        </tr>
-}
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                   @Html.RouteLink(item.Name, "GetRepositoryHomeView", new { userName = item.User.UserName, repoName = item.Name }, new { @class = "header medium ui" })
+                   
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

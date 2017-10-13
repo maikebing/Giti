@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Giti.Services;
 using Microsoft.AspNetCore.Http;
+using System;
+using Giti.Code;
 
 namespace Giti
 {
@@ -24,15 +22,13 @@ namespace Giti
 		public IConfiguration Configuration { get; }
 
 		// This method gets called by the runtime. Use this method to add services to the container.
-		public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddMvc();
+            services.AddMvc();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 			services.AddDbContext<GitiContext>(options =>
 													 options.UseNpgsql("Host=localhost;Port=5433;Username=Giti;Password=Giti;Database=Giti"));
-
-
-
+            
 			services.AddIdentity<ApplicationUser, IdentityRole>()
 				.AddEntityFrameworkStores<GitiContext>()
 				.AddDefaultTokenProviders();
@@ -56,21 +52,28 @@ namespace Giti
 				options.User.RequireUniqueEmail = true;
 			});
 
-			services.ConfigureApplicationCookie(options =>
-			{
-				// Cookie settings
-				options.Cookie.HttpOnly = true;
-				options.Cookie.Expiration = TimeSpan.FromDays(150);
-				options.LoginPath = "/Account/Login";
-				options.LogoutPath = "/Account/Logout";
-				options.SlidingExpiration = true;
-			});
+            services.ConfigureApplicationCookie(options =>
+           {
+               // Cookie settings
+               options.Cookie.HttpOnly = true;
+               options.Cookie.Expiration = TimeSpan.FromDays(7);
+               options.LoginPath = "/Account/Login";
+               options.LogoutPath = "/Account/Logout";
+               options.SlidingExpiration = true;
+           });
 
-
+            // Add Basic Authentication
+            services.AddAuthentication().AddCookie().AddBasic();
 
 			// Add application services.
 			services.AddTransient<IEmailSender, AuthMessageSender>();
 			services.AddTransient<ISmsSender, AuthMessageSender>();
+
+			// Add git services
+			services.AddTransient<GitRepositoryService>();
+			services.AddTransient<GitFileService>();
+
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,20 +88,12 @@ namespace Giti
 				app.UseExceptionHandler("/Home/Error");
 			}
 
-
-
 			app.UseStaticFiles();
 
-			app.UseAuthentication();
-
-
-
-			app.UseMvc(routes =>
-			{
-				routes.MapRoute(
-					name: "default",
-					template: "{controller=Home}/{action=Index}/{id?}");
-			});
+            app.UseAuthentication();
+			
+			app.UseMvc(routes => RouteConfig.RegisterRoutes(routes));
 		}
+		
     }
 }

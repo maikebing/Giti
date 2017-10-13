@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using LibGit2Sharp;
+using Microsoft.EntityFrameworkCore;
 
 namespace Giti.Controllers
 {
@@ -27,10 +28,12 @@ namespace Giti.Controllers
 			_context = context;
 		}
 
+
+
 		public IActionResult Index()
 		{
 			var currentUserId = User.GetUserId();
-            var model = _context.Repositories.Where(p => p.UserId == currentUserId).ToList();
+            var model = _context.Repositories.Where(p => p.UserId == currentUserId).Include(d=>d.User).ToList();
 			return View(model);
 		}
 
@@ -57,12 +60,11 @@ namespace Giti.Controllers
 			string contentRootPath = _hostingEnvironment.ContentRootPath;
 			string currentUsername = User.Identity.Name;
             string projectRepoPath = $"{contentRootPath}/repos/{currentUsername}/{repo.Name.Trim()}";
-            	
-			
+           
             //Create repo folder and execute git init
 			Directory.CreateDirectory(projectRepoPath);
 			//ToDo: check if project record saved in db then execute git init
-			LibGit2Sharp.Repository.Init(projectRepoPath);
+			LibGit2Sharp.Repository.Init(projectRepoPath,true);
 			return RedirectToAction(nameof(Index));
 		}
 
