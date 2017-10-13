@@ -1,0 +1,30 @@
+@using Giti.Extensions
+@using Giti.Models
+@model FileTreeEntry
+
+@{
+	ViewBag.Title = Model.Name;
+}
+
+@if (Model.IsFile)
+{
+	if (!Model.IsBinary)
+	{
+        <p>@Model.ContentString</p>
+	}
+	else
+	{
+		<p>The file is a binary file and cannot be displayed.</p>
+	}
+}
+else if (Model.IsDirectory)
+{
+	<ul class="file-browser">
+		@foreach (FileTreeEntry entry in Model)
+		{
+			<li class="@(entry.IsFile ? "file" : "dir")">
+				<a href="@Url.UnencodedRouteLink("GetFileView", new { repoName = entry.RepoName, filePath = entry.Path })">@entry.Name</a>
+			</li>
+		}
+	</ul>
+}
