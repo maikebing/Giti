@@ -1,0 +1,80 @@
+﻿msgid "Giti"
+msgstr "گیتی"
+
+msgid "Home Page"
+msgstr "صفحه نخست"
+
+msgid "Home"
+msgstr "صفحه نخست"
+
+msgid "Register"
+msgstr "ثبت‌نام"
+
+msgid "Log in"
+msgstr "ورود"
+
+msgid  "Use a local account to log in"
+msgstr "استفاده از حساب کاربری محلی"
+
+msgid "Register as a new user?"
+msgstr "کاربر جدید هستید؟ ثبت‌نام کنید"
+
+msgid "Forgot your password?"
+msgstr "کلمه عبور را فراموش کردید؟"
+
+msgid "Email / Username"
+msgstr "نام کاربری / ایمیل"
+
+msgid "Password"
+msgstr "کلمه عبور"
+
+msgid "Username"
+msgstr "نام کاربری"
+
+msgid "Email"
+msgstr "ایمیل"
+
+msgid "Confirm password"
+msgsrt "تکرار کلمه عبور"
+
+msgid "Create a new account"
+msgstr "ایجاد حساب کاربری جدید"
+
+msgid "Name"
+msgstr "عنوان"
+
+msgid "Description"
+msgstr "توضیح"
+
+msgid "Create New"
+msgstr " مورد جدید"
+
+msgid "My Repos"
+msgstr "مخازن من"
+
+msgid "Create"
+msgstr "ایجاد"
+
+msgid "New Repo"
+msgstr "مخزن جدید"
+
+msgid "Clone current repository with url below"
+msgstr "مخزن جاری را از آدرس زیر clone کنید"
+
+msgid "Find out how"
+msgstr "راهنما"
+
+msgid "Repositories"
+msgstr "مخازن"
+
+msgid "Hello"
+msgstr "سلام"
+
+msgid "Learn more"
+msgstr "اطلاعات بیشتر"
+
+msgid "Log off"
+msgstr "خروج"
+
+msgid "Remember me?"
+msgid "مرا به خاطر بسپار"

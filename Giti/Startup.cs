@@ -9,6 +9,10 @@ using Giti.Services;
 using Microsoft.AspNetCore.Http;
 using System;
 using Giti.Code;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Localization;
 
 namespace Giti
 {
@@ -24,7 +28,7 @@ namespace Giti
 		// This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
 		{
-            services.AddMvc();
+            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);;
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 			services.AddDbContext<GitiContext>(options =>
 													 options.UseNpgsql("Host=localhost;Port=5433;Username=Giti;Password=Giti;Database=Giti"));
@@ -73,7 +77,21 @@ namespace Giti
 			services.AddTransient<GitRepositoryService>();
 			services.AddTransient<GitFileService>();
 
+            //Add Localization service
+            services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
 
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo("en-US"),
+                new CultureInfo("fa-IR")                
+            };
+
+                options.DefaultRequestCulture = new RequestCulture("en-US");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,6 +109,8 @@ namespace Giti
 			app.UseStaticFiles();
 
             app.UseAuthentication();
+
+            app.UseRequestLocalization();
 			
 			app.UseMvc(routes => RouteConfig.RegisterRoutes(routes));
 		}

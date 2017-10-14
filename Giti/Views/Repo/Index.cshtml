@@ -1,13 +1,13 @@
 @model IEnumerable<Giti.Models.Repository>
 
 @{
-    ViewData["Title"] = "My Repos";
+    ViewData["Title"] = Localizer["My Repos"];
 }
 
-<h2>My Repos</h2>
+<h2>@Localizer["My Repos"]</h2>
 
 <p>
-    <a asp-action="New">Create New</a>
+    <a asp-action="New">@Localizer["Create New"]</a>
 </p>
 <table class="table">
     <thead>

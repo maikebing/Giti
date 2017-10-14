@@ -1,0 +1,80 @@
+﻿msgid "Giti"
+msgstr "Giti"
+
+msgid "Home Page"
+msgstr "Home Page"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Log in"
+msgstr "Log in"
+
+msgid  "Use a local account to log in"
+msgstr "Use a local account to log in"
+
+msgid "Register as a new user?"
+msgstr "Register as a new user?"
+
+msgid "Forgot your password?"
+msgstr "Forgot your password?"
+
+msgid "Email / Username"
+msgstr "Email / Username"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Confirm password"
+msgsrt "Confirm password"
+
+msgid "Create a new account"
+msgstr "Create a new account"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Create New"
+msgstr "Create New"
+
+msgid "My Repos"
+msgstr "My Repos"
+
+msgid "Create"
+msgstr "Create"
+
+msgid "New Repo"
+msgstr "New Repo"
+
+msgid "Clone current repository with url below"
+msgstr "Clone current repository with url below"
+
+msgid "Find out how"
+msgstr "Find out how"
+
+msgid "Repositories"
+msgstr "Repositories"
+
+msgid "Hello"
+msgstr "Hello"
+
+msgid "Learn more"
+msgstr "Learn more"
+
+msgid "Log off"
+msgstr "Log off"
+
+msgid "Remember me?"
+msgid "Remember me?"
