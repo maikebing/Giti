@@ -7,6 +7,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
     <PackageReference Include="LibGit2Sharp" Version="0.24.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.0.0" />
+    <PackageReference Include="OrchardCore.Localization.Core" Version="1.0.0-beta1-3375" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.0" />
@@ -15,5 +16,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Services\GitAuthenticationService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Localization\" />
   </ItemGroup>
 </Project>
