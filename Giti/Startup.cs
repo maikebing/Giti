@@ -83,12 +83,10 @@ namespace Giti
             services.Configure<RequestLocalizationOptions>(options =>
             {
                 var supportedCultures = new List<CultureInfo>
-            {
-                new CultureInfo("en-US"),
-                new CultureInfo("fa-IR")                
-            };
-
-                options.DefaultRequestCulture = new RequestCulture("en-US");
+                {
+                    new CultureInfo("en-US"),
+                    new CultureInfo("fa-IR")                
+                };
                 options.SupportedCultures = supportedCultures;
                 options.SupportedUICultures = supportedCultures;
             });
@@ -110,7 +108,10 @@ namespace Giti
 
             app.UseAuthentication();
 
-            app.UseRequestLocalization();
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(Configuration["GitiSettings:DefaultCulture"])               
+            });
 			
 			app.UseMvc(routes => RouteConfig.RegisterRoutes(routes));
 		}
