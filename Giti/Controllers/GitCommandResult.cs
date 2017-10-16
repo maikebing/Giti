@@ -28,10 +28,6 @@ namespace Giti.Controllers
 
             response.ContentType = contentType;
 
-            response.Headers.Add("Expires", "Fri, 01 Jan 1980 00:00:00 GMT");
-            response.Headers.Add("Pragma", "no-cache");
-            response.Headers.Add("Cache-Control", "no-cache, max-age=0, must-revalidate");
-
             ProcessStartInfo info = new ProcessStartInfo("git", Options.ToString())
             {
                 UseShellExecute = false,
