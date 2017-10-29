@@ -28,7 +28,7 @@ namespace Giti
 		// This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
 		{
-            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);;
+            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 			services.AddDbContext<GitiContext>(options =>
 													 options.UseNpgsql("Host=localhost;Port=5433;Username=Giti;Password=Giti;Database=Giti"));
