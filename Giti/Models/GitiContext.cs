@@ -29,6 +29,7 @@ namespace Giti.Models
 		}
 
         public DbSet<Repository> Repositories { get; set; } 
+        public DbSet<Issue> Issues { get; set; } 
 
 		public override int SaveChanges()
 		{

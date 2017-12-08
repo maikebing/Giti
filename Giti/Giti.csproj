@@ -17,4 +17,7 @@
   <ItemGroup>
     <Folder Include="Localization\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Localization\*" CopyToPublishDirectory="Always" />
+  </ItemGroup>
 </Project>
