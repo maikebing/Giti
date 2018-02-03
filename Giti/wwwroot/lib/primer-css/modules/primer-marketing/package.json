@@ -1,0 +1,39 @@
+{
+  "version": "6.2.0",
+  "name": "primer-marketing",
+  "description": "Primer marketing packages",
+  "homepage": "http://primer.github.io/",
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "style": "build/build.css",
+  "sass": "index.scss",
+  "main": "build/index.js",
+  "primer": {
+    "category": "marketing",
+    "module_type": "meta"
+  },
+  "files": [
+    "index.scss",
+    "build"
+  ],
+  "repository": "https://github.com/primer/primer/tree/master/modules/primer-marketing",
+  "bugs": {
+    "url": "https://github.com/primer/primer/issues"
+  },
+  "scripts": {
+    "build": "../../script/npm-run primer-module-build index.scss",
+    "prepare": "npm run build",
+    "test": "npm run build",
+    "lint": "../../script/lint-scss"
+  },
+  "dependencies": {
+    "primer-marketing-buttons": "1.0.4",
+    "primer-marketing-support": "1.5.0",
+    "primer-marketing-type": "1.4.5",
+    "primer-marketing-utilities": "1.6.1",
+    "primer-page-headers": "1.4.5",
+    "primer-page-sections": "1.4.5",
+    "primer-support": "4.5.2",
+    "primer-tables": "1.4.5"
+  }
+}

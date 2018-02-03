@@ -1,0 +1,40 @@
+{
+  "version": "5.6.2",
+  "name": "primer-product",
+  "description": "Primer's product modules",
+  "homepage": "http://primer.github.io/",
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "style": "build/build.css",
+  "sass": "index.scss",
+  "main": "build/index.js",
+  "primer": {
+    "category": "product",
+    "module_type": "meta"
+  },
+  "files": [
+    "index.scss",
+    "build"
+  ],
+  "repository": "https://github.com/primer/primer/tree/master/modules/primer-product",
+  "bugs": {
+    "url": "https://github.com/primer/primer/issues"
+  },
+  "scripts": {
+    "build": "../../script/npm-run primer-module-build index.scss",
+    "prepare": "npm run build",
+    "test": "npm run build",
+    "lint": "../../script/lint-scss"
+  },
+  "dependencies": {
+    "primer-alerts": "1.5.5",
+    "primer-avatars": "1.5.2",
+    "primer-blankslate": "1.4.5",
+    "primer-branch-name": "1.0.3",
+    "primer-labels": "1.5.5",
+    "primer-markdown": "3.7.5",
+    "primer-popover": "0.0.6",
+    "primer-subhead": "1.0.3",
+    "primer-support": "4.5.2"
+  }
+}

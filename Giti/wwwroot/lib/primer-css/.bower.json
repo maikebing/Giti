@@ -1,0 +1,15 @@
+{
+  "name": "primer-css",
+  "homepage": "https://github.com/primer/primer",
+  "version": "10.3.0",
+  "_release": "10.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v10.3.0",
+    "commit": "81825ff04241141ee5bbdc610d97da04da6da8e9"
+  },
+  "_source": "https://github.com/primer/primer.git",
+  "_target": "v10.3.0",
+  "_originalSource": "primer-css",
+  "_direct": true
+}
