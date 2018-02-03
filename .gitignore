@@ -40,3 +40,5 @@ Thumbs.db
 *.dotCover
 
 repos/
+/.vs/Giti/v15/Server/sqlite3
+/.vs/config
